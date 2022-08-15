@@ -34,8 +34,7 @@ class VinylController extends AbstractController {
 		foreach ($mixes as $key => $mix) {
 			$mixes[$key]['ago'] = $timeFormatter->formatDiff($mix['createdAt']);
 		}
-		dd($mixes);
-		
+
 		return $this->render('vinyl/browse.html.twig', [
 			'genre' => $genre,
 			'mixes' => $mixes,
