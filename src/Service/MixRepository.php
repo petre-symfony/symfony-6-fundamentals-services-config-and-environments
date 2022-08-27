@@ -7,8 +7,8 @@ use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class MixRepository {
-	private $httpClient;
-	private $cache;
+	private HttpClientInterface $httpClient;
+	private CacheInterface $cache;
 
 	public function __construct(HttpClientInterface $httpClient, CacheInterface $cache) {
 		$this->httpClient = $httpClient;
