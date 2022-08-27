@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 class MixRepository {
 
 	public function __construct(
-		private HttpClientInterface $httpClient,
+		private HttpClientInterface $githubContentClient,
 		private CacheInterface $cache,
 		#[Autowire('%kernel.debug%')]
 		private bool $isDebug
