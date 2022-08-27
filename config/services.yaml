@@ -31,4 +31,4 @@ services:
   # please note that last definitions always *replace* previous ones
   App\Service\MixRepository:
     bind:
-      '$twigDebugCommand': 'twig.command.debug'
+      '$twigDebugCommand': '@twig.command.debug'
