@@ -23,17 +23,16 @@ class TalkToMeCommand extends Command {
 
 	protected function execute(InputInterface $input, OutputInterface $output): int {
 		$io = new SymfonyStyle($input, $output);
-		$arg1 = $input->getArgument('arg1');
+		$name = $input->getArgument('name') ?: 'Whoever you are';
+		$shouldYell = $input->getOption('yell');
 
-		if ($arg1) {
-			$io->note(sprintf('You passed an argument: %s', $arg1));
+		$message = sprintf('Hey %s!', $name);
+		if ($shouldYell) {
+			$message = strtoupper($message);
 		}
 
-		if ($input->getOption('option1')) {
-			// ...
-		}
 
-		$io->success('You have a new command! Now make it your own! Pass --help to see your options.');
+		$io->success($message);
 
 		return Command::SUCCESS;
 	}
