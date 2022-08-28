@@ -31,7 +31,11 @@ class MixRepository {
 
 		return $this->cache->get('mixes_data', function(CacheItemInterface $cacheItem) {
 			$cacheItem->expiresAfter($this->isDebug ? 5 : 60);
-			$response = $this->githubContentClient->request('GET', '/SymfonyCasts/vinyl-mixes/main/mixes.json');
+			$response = $this->githubContentClient->request('GET', '/SymfonyCasts/vinyl-mixes/main/mixes.json', [
+				'headers' => [
+					'Authorization' => 'Token ghp_foo_bar'
+				]
+			]);
 
 			return $response->toArray();
 		});
